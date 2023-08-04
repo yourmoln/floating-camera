@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stream</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<video id="video"></video>
+
+<script>
+    var video = document.getElementById('video');
+    navigator.mediaDevices.getUserMedia({video : {width: 1000, height: 1000}}).then(success).catch(error);
+
+    function success(stream) {
+        console.log(stream);
+        video.srcObject = stream;
+        video.play();
+    }
+</script>
+</body>
+</html>
